@@ -1,0 +1,44 @@
+name: Update Tailscale URL
+
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write  # Permissão para commit/push
+
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        persist-credentials: true
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+        
+    - name: Create docs directory
+      run: mkdir -p docs
+        
+    - name: Install dependencies
+      run: npm install
+      
+    # - name: Run update script
+    #   env:
+    #     TAILSCALE_URL: ${{ secrets.TAILSCALE_URL }}
+      # run: node index.js
+      
+    - name: Commit and push if changed
+      run: |
+        git config --global user.name 'github-actions[bot]'
+        git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+        git add docs/index.html
+        git commit -m "Update redirect URL" || exit 0
+        git push
+      # env:
+      #   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
