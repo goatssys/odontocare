@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="utf-8">
     <meta http-equiv="refresh" content="0;url=https://ebb9e9502cf2.tail9308f2.ts.net/login">
     <title>Redirecting to Tailscale URL</title>
     <style>
@@ -24,13 +25,13 @@
 </head>
 <body>
     <div class="container">
-        <h1>Redirecionando...</h1>
-        <p>Você será redirecionado para a URL: <br><strong><a href="https://ebb9e9502cf2.tail9308f2.ts.net/login">https://ebb9e9502cf2.tail9308f2.ts.net/login</a></strong></p>
+        <h1>Página não encontrada — redirecionando...</h1>
+        <p>Se você chegou aqui por uma URL inválida, será redirecionado para: <br><strong><a href="https://ebb9e9502cf2.tail9308f2.ts.net/login">https://ebb9e9502cf2.tail9308f2.ts.net/login</a></strong></p>
         <p>Se o redirecionamento não ocorrer automaticamente, clique no link acima.</p>
     </div>
     <script>
-        // Fallback JS redirect (garante redirecionamento se meta refresh for tratado como relativo)
-        setTimeout(function(){ window.location.replace("https://ebb9e9502cf2.tail9308f2.ts.net/login"); }, 100);
+        // Garantir redirecionamento mesmo se meta refresh falhar
+        window.location.replace("https://ebb9e9502cf2.tail9308f2.ts.net/login");
     </script>
 </body>
 </html>
